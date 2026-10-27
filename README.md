@@ -10,17 +10,7 @@ A Chrome and Firefox extension (also available as a userscript) that shows which
 
 ## Screenshots
 
-**On your Steam Hunters profile**: the day's report, with ▲/▼ tags on the changed games in your list
-
 ![Daily report open over a Steam Hunters profile, with up and down tags on the game list](docs/images/profile.png)
-
-**Big libraries**
-
-![Toolbar popup with a day of 4,812 changed games](docs/images/popup.png)
-
-![Report filtered to games named "hollow" that went down and changed your points](docs/images/popup-filtered.png)
-
-<sub>The last two screenshots use sample data.</sub>
 
 ## Install
 
