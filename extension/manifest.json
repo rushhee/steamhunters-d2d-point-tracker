@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "SteamHunters D2D Point Tracker",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Shows which games on your profile went up or down in Steam Hunters points day to day.",
   "permissions": ["storage", "unlimitedStorage", "alarms", "notifications"],
   "host_permissions": [
