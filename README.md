@@ -39,6 +39,34 @@ Temporary add-ons are removed when Firefox restarts, so you'll need to load it a
 
 Userscripts only run while a page is open, so the 6-hourly check happens the next time you visit any Steam Hunters page once it's due. The report lives in the panel on your profile page. The userscript manager's menu has **Check now**, **Ignore changes smaller than…** and **Open my profile**, in place of the extension popup. Updates are picked up automatically from the latest release. Greasemonkey isn't supported.
 
+## Clearing past days
+
+The extension keeps the last 50 days of reports and drops older ones by itself. To clear them sooner, remove the stored `reports`. Your account, settings and today's baseline stay, so tracking carries on and today's report comes back at the next check.
+
+**Chrome**
+
+1. Open `chrome://extensions` with **Developer mode** on.
+2. On the tracker's card, click **service worker** next to **Inspect views**.
+3. In the **Console** tab, run:
+
+   ```js
+   chrome.storage.local.remove("reports")
+   ```
+
+To wipe everything instead (account, settings, baseline and history), remove the extension and load it again. You can also close Chrome and delete the extension's storage folder. The ID is shown on its card in `chrome://extensions`, and `Default` is your Chrome profile folder.
+
+- Windows: `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Local Extension Settings\<extension ID>`
+- macOS: `~/Library/Application Support/Google/Chrome/Default/Local Extension Settings/<extension ID>`
+
+**Firefox**
+
+Open `about:debugging#/runtime/this-firefox`, click **Inspect** on the tracker, and run the same command in the **Console** tab.
+
+**Userscript**
+
+- Tampermonkey: open the dashboard, click the script and open its **Storage** tab. You may need to set **Config mode** to **Advanced** in Tampermonkey's settings first. Delete the `"reports"` entry and save.
+- Violentmonkey: open the dashboard, edit the script, open the **Values** tab and delete `reports`.
+
 ## Building
 
 `node build.mjs` (Node 18+, no dependencies) writes to `dist/`:
