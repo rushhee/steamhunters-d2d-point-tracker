@@ -1,0 +1,7 @@
+dist/
+.DS_Store
+# shtrack.py output
+config.json
+snapshots/
+reports/
+__pycache__/

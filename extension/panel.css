@@ -1,0 +1,117 @@
+/* Shared by the on-page panel and the popup. Everything is shpt- prefixed to stay clear of the site's Bootstrap. */
+.shpt-panel {
+  margin: 0 0 20px;
+  padding: 12px 14px;
+  background: rgba(16, 20, 28, 0.88);
+  border: 1px solid #2c3546;
+  border-left: 3px solid #3b82f6;
+  border-radius: 4px;
+  color: #d6dbe4;
+  font-size: 13px;
+}
+.shpt-muted { color: #8a94a6; }
+.shpt-up { color: #5cc878; }
+.shpt-down { color: #e65a5a; }
+.shpt-flat { color: #8a94a6; }
+.shpt-btn {
+  padding: 4px 10px;
+  background: #3b82f6;
+  border: 0;
+  border-radius: 3px;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+.shpt-btn:hover { background: #2f6fd8; }
+.shpt-btn[disabled] { opacity: 0.6; cursor: default; }
+.shpt-ghost { background: transparent; border: 1px solid #3a4558; color: #b7c0cf; }
+.shpt-ghost:hover { background: #222a38; }
+.shpt-select { margin: 10px 0 0; padding: 3px 6px; background: #1b2230; border: 1px solid #3a4558; border-radius: 3px; color: #d6dbe4; font: inherit; }
+.shpt-range { margin-top: 10px; font-size: 12px; }
+.shpt-summary { display: flex; gap: 16px; margin: 4px 0 8px; font-size: 14px; }
+.shpt-empty { margin: 10px 0 0; }
+.shpt-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0 0 8px; }
+.shpt-search {
+  flex: 1 1 160px; min-width: 0; height: 26px; margin: 0; padding: 0 8px; box-sizing: border-box;
+  background: #1b2230; border: 1px solid #3a4558; border-radius: 3px; color: #d6dbe4; font: inherit;
+}
+.shpt-search:focus { outline: none; border-color: #3b82f6; }
+.shpt-seg { display: inline-flex; border: 1px solid #3a4558; border-radius: 3px; overflow: hidden; }
+.shpt-seg button { height: 24px; margin: 0; padding: 0 9px; background: transparent; border: 0; color: #b7c0cf; font: inherit; cursor: pointer; }
+.shpt-seg button + button { border-left: 1px solid #3a4558; }
+.shpt-seg button:hover { background: #222a38; }
+.shpt-seg button[aria-pressed="true"] { background: #3b82f6; color: #fff; }
+.shpt-check { display: inline-flex; align-items: center; gap: 5px; margin: 0; color: #b7c0cf; font-weight: normal; cursor: pointer; white-space: nowrap; }
+.shpt-check input { margin: 0; }
+
+/* Virtual list: fixed-height rows absolutely placed inside a spacer, header sticky on top. */
+.shpt-scroll { position: relative; max-height: var(--shpt-list-h, 400px); overflow-y: auto; overscroll-behavior: contain; }
+.shpt-rows { position: relative; }
+.shpt-row {
+  display: grid; grid-template-columns: minmax(0, 1fr) 118px 58px 104px 58px; align-items: center;
+  height: 26px; box-sizing: border-box; padding: 0 8px; border-bottom: 1px solid #1d2431;
+}
+.shpt-rows .shpt-row { position: absolute; left: 0; right: 0; }
+.shpt-rows .shpt-row:hover { background: #1b2230; }
+.shpt-head-row { position: sticky; top: 0; z-index: 1; background: var(--shpt-bg, #10151e); border-bottom-color: #2c3546; color: #8a94a6; font-weight: 600; }
+.shpt-sort { margin: 0; padding: 0; background: none; border: 0; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.shpt-sort:hover { color: #f1f4f9; }
+.shpt-sort.shpt-num { text-align: right; }
+.shpt-arrow { margin-left: 3px; font-size: 9px; color: #60a5fa; }
+.shpt-row .shpt-num { text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-variant-numeric: tabular-nums; }
+.shpt-name { display: flex; align-items: baseline; gap: 6px; min-width: 0; }
+.shpt-name a { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; color: #d6dbe4; text-decoration: none; }
+.shpt-name a:hover { color: #fff; text-decoration: underline; }
+.shpt-name .shpt-note { flex: none; }
+.shpt-count { margin-top: 6px; font-size: 12px; }
+.shpt-note { color: #8a94a6; }
+.shpt-tag {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 0 5px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+  vertical-align: middle;
+  font-variant-numeric: tabular-nums;
+}
+.shpt-tag-up { background: rgba(92, 200, 120, 0.18); color: #5cc878; }
+.shpt-tag-down { background: rgba(230, 90, 90, 0.18); color: #e65a5a; }
+
+/* Launcher + popover (profile page). Mobbin refs: Gorgias/Hootsuite round FAB with count, Jira/fal notification card. */
+.shpt-root { position: fixed; top: 62px; left: 12px; z-index: 1040; font: 13px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; color: #d6dbe4; }
+.shpt-fab {
+  position: relative; display: grid; place-items: center; width: 38px; height: 38px; padding: 0;
+  background: linear-gradient(#1d2635, #0f141c); border: 1px solid #2f3a4f; border-radius: 11px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45); cursor: pointer; transition: border-color 0.15s, transform 0.15s;
+}
+.shpt-fab:hover, .shpt-fab.shpt-active { border-color: #4a5a78; transform: translateY(-1px); }
+.shpt-fab:focus-visible, .shpt-icon-btn:focus-visible, .shpt-btn:focus-visible { outline: 2px solid #60a5fa; outline-offset: 2px; }
+.shpt-glyph { display: block; width: 22px; height: 22px; }
+.shpt-glyph svg { display: block; }
+.shpt-badge {
+  position: absolute; top: -6px; right: -6px; min-width: 17px; height: 17px; padding: 0 4px; box-sizing: border-box;
+  background: #ef4444; border: 2px solid #0c1018; border-radius: 9px; color: #fff; font-size: 10px; font-weight: 700; line-height: 13px; text-align: center;
+}
+.shpt-badge[hidden] { display: none; }
+.shpt-pop {
+  position: absolute; top: 46px; left: 0; width: 600px; max-width: calc(100vw - 24px); max-height: calc(100vh - 130px); overflow: auto;
+  background: #10151e; border: 1px solid #2c3546; border-radius: 12px; box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+}
+.shpt-pop[hidden] { display: none; }
+.shpt-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 14px; border-bottom: 1px solid #1f2735; }
+.shpt-head-text { display: flex; flex-direction: column; }
+.shpt-head-text strong { font-size: 14px; color: #f1f4f9; }
+.shpt-head-text .shpt-muted { font-size: 12px; }
+.shpt-actions { display: flex; gap: 4px; }
+.shpt-icon-btn { width: 28px; height: 28px; padding: 0; background: transparent; border: 0; border-radius: 6px; color: #8a94a6; font-size: 14px; cursor: pointer; }
+.shpt-icon-btn:hover { background: #1b2230; color: #f1f4f9; }
+.shpt-icon-btn[disabled] { opacity: 0.5; cursor: default; }
+.shpt-body { padding: 4px 14px 14px; }
+.shpt-body > p { margin: 10px 0 12px; }
+.shpt-error { padding: 8px 14px; background: rgba(239, 68, 68, 0.1); color: #f87171; }
+
+/* Toolbar popup header */
+.shpt-bar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.shpt-spacer { flex: 1; }

@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="panel.css">
+  <style>
+    body { margin: 0; width: 620px; background: #10141c; --shpt-bg: #10141c; --shpt-list-h: 320px; font-family: system-ui, -apple-system, sans-serif; }
+    .shpt-panel { margin: 0; border: 0; border-radius: 0; }
+    form { display: flex; gap: 8px; margin: 10px 0; }
+    #profile, #minChange { flex: 1; padding: 4px 8px; background: #1b2230; border: 1px solid #3a4558; border-radius: 3px; color: #d6dbe4; font: inherit; }
+  </style>
+</head>
+<body>
+  <main class="shpt-panel">
+    <div class="shpt-bar">
+      <strong>SteamHunters D2D Point Tracker</strong>
+      <span id="status" class="shpt-muted"></span>
+      <span class="shpt-spacer"></span>
+      <button id="check" class="shpt-btn" type="button">Check now</button>
+    </div>
+    <form id="account">
+      <input id="profile" placeholder="Your Steam profile URL, vanity name or SteamID64" autocomplete="off">
+      <button class="shpt-btn shpt-ghost" type="submit">Save account</button>
+    </form>
+    <label class="shpt-muted" style="display:flex;align-items:center;gap:8px;margin:0 0 10px">
+      Ignore daily changes smaller than
+      <input id="minChange" type="number" min="1" step="1" style="flex:none;width:60px"> points
+      <span>(normal day-to-day drift is a few points)</span>
+    </label>
+    <div id="report"></div>
+  </main>
+  <script src="render.js"></script>
+  <script src="report-view.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
